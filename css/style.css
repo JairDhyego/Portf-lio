@@ -1,12 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;300;400;600;700&family=Red+Hat+Display:wght@500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;1,500;1,700&display=swap');
 
 
+
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Red Hat Display', sans-serif;
   text-transform: capitalize;
+  list-style: none;
+  text-decoration: none;
+  color: #000046;
+}
+
+:root{
+  --font-primary: 'Josefin Slab', sans-serif;
+  --font-secundary: 'Red Hat Display', sans-serif;
+  --font-acao: "Roboto", sans-serif;
+}
+
+.hamburguer{ 
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.show-menu .hamburguer{
+  right: 16rem;
+}
+
+.hamburguer .line{
+  height: .1rem;
+  background-color: #fff ;
+  box-shadow: .2rem .1rem 2px #000;
+  transition: all 1s;
+}
+
+.show-menu #line1{
+  transform: rotate(45deg) translate(.3rem, .45rem);
+}
+
+.show-menu #line2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.show-menu #line3{
+  transform: rotate(-45deg) translate(.48rem, -.79rem);
+}
+
+.hamburguer span{
+  position: absolute;
+  left: 4rem;
+  background-color: #000046;
+  color: #fff;
+  height: 2rem;
+  width: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-acao);  
+  opacity: 0;
+  transition: .6s;
+}
+
+/* .hamburguer span::before{
+  content: "";
+  position: absolute;
+  border-left : .5rem solid #000046;
+  border-top : .5rem solid transparente;
+  border-right : .5rem solid transparente;
+  border-bottom : .5rem solid transparente;
+  left: 8.5rem; 
+} */
+
+.show-menu .hamburguer:hover span{
+  opacity: 1;
+  
 }
 
 header{
@@ -41,7 +122,7 @@ header{
 .banner h1{
   color: #fff;
   font-size: 3.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family:var(--font-primary);
   font-weight: 400;
   text-shadow: .2rem .2rem 2px rgba(0, 0, 0, .4);
   line-height: 3rem;
@@ -51,6 +132,7 @@ header{
 }
 
 .banner p {
+  font-family: var(--font-secundary);
   color: #fff;
   font-size: 2rem;
   text-shadow: .2rem .2rem 0px rgba(0, 0, 0, .4);
@@ -72,6 +154,7 @@ header{
   cursor: pointer;
   animation: movebanner 1.5s .7s forwards;
   opacity: 0;
+  font-family: var(--font-acao);
 }
 
 .banner button:hover{
@@ -79,9 +162,81 @@ header{
  color: black;
 }
 
+.sidebar{
+  width: 20rem;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: -20rem;
+  transition: all .6s;
+}
+
+.show-menu .sidebar{
+  right: 0rem;
+ 
+
+}
+
+.sidebar .menu{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-item{
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+.sidebar .menu-link{
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  color: #555;
+  font-weight: 700;
+}
+
+.menu-link:hover{
+  color: #000046;
+  transition: .4s;
+}
+
+.social-media{
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 
-/* KEYFRAMES */
+.social-media i{
+  color: #555;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000046; 
+}
+
+
+.social-media i:hover{
+  color: #fff;
+  transition: .4s;
+  background-color: #121279;
+}
+
+
+
+
+
+
+
+/* KEYFRAMES . usado com animation */
 
 @keyframes zoom{
   0%{
