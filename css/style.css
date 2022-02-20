@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;300;400;600;700&family=Red+Hat+Display:wght@500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;1,500;1,700&display=swap');
 
 
-
-
 * {
   padding: 0;
   margin: 0;
@@ -20,6 +18,22 @@
   --font-acao: "Roboto", sans-serif;
 }
 
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+  width: 10px;
+  background: linear-gradient(to top, #000046, #1cb5e0);
+  
+
+}
+
+html {    
+  scroll-behavior: smooth;  }
+
+
+ 
 .hamburguer {
   width: 2rem;
   height: 2rem;
@@ -35,6 +49,7 @@
 
 .show-menu .hamburguer {
   right: 16rem;
+  z-index: 160;
 }
 
 .hamburguer .line {
@@ -75,15 +90,6 @@
   transition: .6s;
 }
 
-/* .hamburguer span::before{
-  content: "";
-  position: absolute;
-  border-left : .5rem solid #000046;
-  border-top : .5rem solid transparente;
-  border-right : .5rem solid transparente;
-  border-bottom : .5rem solid transparente;
-  left: 8.5rem; 
-} */
 
 .show-menu .hamburguer:hover span {
   opacity: 1;
@@ -169,6 +175,7 @@ header {
   top: 0;
   right: -20rem;
   transition: all .6s;
+  z-index: 150;
 }
 
 .show-menu .sidebar {
@@ -441,7 +448,7 @@ p {
 
 .contatoLeft{
   width: 35%;
-  background: url(img\contato.jpg), 
+  background: url(../img/contato.jpg), 
   linear-gradient(rgba(15,15,15,0.6), rgba(22,22,22, 0.9));
   height: 100%;
   background-size: cover;
@@ -460,6 +467,12 @@ p {
   font-family: var(--font-secundary);
   font-size: 3rem;
   font-weight: lighter;
+  color: #555;
+}
+
+.sessao-contato h1:hover{
+  color: #000046;
+  transition: all .4s;
 }
 
 .sessao-contato form{
@@ -525,6 +538,160 @@ form .btn-submit:hover{
   opacity: .8;
 }
 
+
+.sessao-orcamento{
+ width: 100%;
+ height: 100vh;
+ background: url("../img/bg-orcamento.jpg");
+ object-fit: cover;
+ background-position: cover;
+ background-repeat: no-repeat;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.orcamento-wrapper{
+  width: 60%;
+  height: 80%;
+  background-color: #ffffff99; /* 99 pra deixar com opacity e ver a corde fundo */
+  border-radius: 10px;
+  box-shadow: 0rem .1rem .4rem rgba(0, 0, 0, .5);
+  position: relative;
+}
+
+.sessao-orcamento h1{
+
+  background: linear-gradient(to right, #000046, #1cb5e0);
+  font-family: var(--font-secundary);
+  font-size: 3rem;
+  font-weight: lighter;
+  position: absolute;
+  top: -4rem;
+  left: 2rem;
+  text-transform: uppercase;
+  padding: 0 3rem;
+  color: #fff;
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: bold;
+  box-shadow: 0rem .1rem .4rem rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sessao-orcamento h1:hover{  
+  transition: all .4s;
+}
+
+
+.sessao-orcamento form{
+  margin: 4rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.sessao-orcamento label{
+  font-family: var(--font-secundary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sessao-orcamento input[type="number"] {
+  font-family: var(--font-acao);
+  width: 4rem;
+  font-size: 2rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: .3rem;
+}
+
+.sessao-orcamento  .btn-orcamento {
+  color: #fff;
+  padding: 0.7rem 1.3rem;
+  background: linear-gradient(to right, #000046, #1cb5e0);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;  
+  cursor: pointer;
+  transition: all .4s;
+  font-family: var(--font-acao); 
+  grid-column: 2;
+}  
+
+
+.sessao-orcamento .btn-orcamento:hover { 
+  color: black;
+  letter-spacing: .1rem;
+}
+
+footer{
+  width: 100%;
+  height: 7rem;
+  background-color: #17181b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .footer-content{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.footer-content p {
+  text-transform: uppercase;
+  font-family: var(--font-secundary);
+  color: #a7a7a7;
+  font-size: 1.2rem;
+}
+
+.social-list a {
+ margin: 0 2rem; 
+}
+
+.social-list ul{
+  display: flex ;  
+}
+
+.social-list i{
+  color: #a7a7a7;
+  font-size: 1.4rem;
+}
+
+.social-list i:hover {
+  border-radius: 10px;
+  color: #fff;
+  transition: .4s;
+  /* background-color: #121279; */
+}
+
+
+#link-topo{
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(to top, #000046, #1cb5e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .3rem;
+  box-shadow: 0 0.1rem .4rem #00000009 ;
+}
+
+#link-topo i {
+  color: #fff;
+}
 
 
 
